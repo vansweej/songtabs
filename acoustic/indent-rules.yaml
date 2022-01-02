@@ -1,0 +1,4 @@
+noAdditionalIndentGlobal:
+  environments: 0
+indentRules:
+  myenv: "  "
