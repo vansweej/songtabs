@@ -5,7 +5,7 @@
 \definesongtitletemplate{tabular}{
     \ifsongmeasuring
         {\section*}
-        {\section}%
+        {\section*}%
         {\songproperty{title}}
     \begingroup\footnotesize
     \begin{tabular}{
@@ -33,6 +33,9 @@
 }
 {}%
 \ifsongproperty{interpret}{\\}{\ifsongproperty{composer}{\\}{}}%
+\ifsongproperty{band}
+{& Band: \songproperty{band} \\}
+{}%
 \ifsongproperty{genre}
 {& Genre: \songproperty{genre} \\}
 {}%
@@ -63,12 +66,15 @@ minor = -\GetTranslation{leadsheets/minor}
   #1%
   \endgroup}
 
-\setleadsheets{title-template=tabular, align-chords=l, verses-format = \ttfamily}
+\setleadsheets{title-template=tabular, align-chords=l, verses-format = \ttfamily, empty-chord-dim=0em}
 
 \begin{document}
-\begin{song}{title={John Barleycorn Must Die}, lyrics={traditional}, band={Traffic}, capo={7}, genre={folk}}
+\begin{song}[remember-chords]{title={John Barleycorn Must Die}, lyrics={traditional}, band={Traffic}, capo={7}, genre={folk}}
+	\begin{intro*}
+		\writechord{D} \writechord{C} \writechord{G} \writechord{Am} \writechord{A5} \times 2
+	\end{intro*}
 	\begin{verse}
-		There ^{D}were three ^{Am}men came ^{C}out of the ^*{Am}west, ^{A5} ^{Am} ^*{A5} \\
+		There ^{D}were three ^{Am}men came ^{C}out ^{G}of the ^*{Am}west, ^{A5} ^{Am} ^*{A5} \\
 		their ^{D}fortunes ^{C}for ^{G}to ^{Am}try ^{A5} ^{Am} ^*{A5} \\
 		And ^{D}these three ^{Am}men made a \RemoveSpaces{^{C}so ^{G}lemn } ^{Am}vow: ^{A5} ^{Am} ^*{A5} \\
 		John \RemoveSpaces{^{D}Barley ^{C}corn } ^{G}must ^{Am}die. ^{A5} ^{Am} ^*{A5} \\
@@ -78,49 +84,64 @@ minor = -\GetTranslation{leadsheets/minor}
 		And ^{Dm}these three ^{Am}men made a \RemoveSpaces{^{C}so ^{G}lemn } ^{Am}vow: ^{A5} ^{Am} ^*{A5} \\
 		John \RemoveSpaces{^{D}Barley ^{C}corn } ^{G}was ^{Am}dead. ^{A5} ^{Am} ^*{A5} \\
 	\end{verse}
+	\begin{chorus*}
+		\writechord{D} \writechord{C} \writechord{G} \writechord{Am} \writechord{A5} \writechord{Am} \writechord{A5} \times 4
+	\end{chorus*}
 	\begin{verse}
-		They've let him lie for a very long time, \\
-		‘till the rains from heaven did fall \\
-		And little Sir John sprung up his head, \\
-		and so amazed them all. \\
+		They've ^let him ^lie for a ^very ^long ^time, ^ {} ^ {} ^ {} \\
+		‘till the ^rains from ^heaven ^did ^fall ^ {} ^ {} ^ {} \\
+		And ^little Sir ^John sprung ^up ^his ^head, ^ {} ^ {} ^ {} \\
+		and ^so ^amazed ^them ^all. ^ {} ^ {} ^ {} \\
 		\\
-		They've let him stand ‘till midsummer's day, \\
-		‘till he looked both pale and wan \\
-		And little Sir John's grown a long, long beard, \\
-		and so become a man. \\
+		They've ^let him ^stand ^‘till ^midsummer's day, \\
+		‘till ^he looked both ^pale and ^wan ^ {} ^ {} ^ {} \\
+		And ^little Sir ^John's grown a ^long, ^long ^beard, ^ {} ^ {} ^ {} \\
+		and ^so be^come ^a ^man. ^ {} ^ {} ^ {} \\
 	\end{verse}
+	\begin{chorus*}
+		\writechord{D} \writechord{C} \writechord{G} \writechord{Am} \writechord{A5} \writechord{Am} \writechord{A5} \times 4
+	\end{chorus*}
 	\begin{verse}
-		They've hired men with the scythes so sharp, \\
-		to cut him off at the knee \\
-		They've rolled him and tied him by the waist, \\
-		servin' him most barbarously. \\
-
-		They've hired men with the sharp pitchforks, \\
-		who pricked him to the heart \\
-		And the loader he has served him worse than that, \\
-		for he's bound him to the cart \\
-	\end{verse}
-	\begin{verse}
-		They've wheeled him around and around the field, \\
-		‘till they came unto a barn \\
-		And there they made a solemn oath, \\
-		on poor John Barleycorn. \\
+		They've ^hired ^men with the ^scythes ^so ^sharp, ^ {} ^ {} ^ {} \\
+		to ^cut him ^off ^at the ^knee ^ {} ^ {} ^ {} \\
+		They've ^rolled him and ^tied him ^by ^the ^waist, ^ {} ^ {} ^ {} \\
+		servin' ^him most \RemoveSpaces{^bar ^barous ^ly. }\setleadsheets{print-chords=false}^ {} ^ {} ^ {}\setleadsheets{print-chords=true}^ {} ^ {} ^ {} \\
 		\\
-		They've hired men with the crab-tree sticks, \\
-		to cut him skin from bone \\
-		And the miller he has served him worse than that, \\
-		for he's ground him between two stones. \\
+		They've ^hired ^men ^with the ^sharp pitchforks, \\
+		who ^pricked him ^to the ^heart ^ {} ^ {} ^ {} \\
+		And the ^loader he has ^served him ^worse ^than ^that, ^ {} ^ {} ^ {} \\
+		for he's ^bound him ^to ^the ^cart ^ {} ^ {} ^ {} \\
 	\end{verse}
+	\begin{chorus*}
+		\writechord{D} \writechord{C} \writechord{G} \writechord{Am} \writechord{A5} \writechord{Am} \writechord{A5} \times 4
+	\end{chorus*}
 	\begin{verse}
-		And little Sir John and the nut-brown bowl, \\
-		and he's brandy in the glass \\
-		And little Sir John and the nut-brown bowl, \\
-		proved the strongest man at last. \\
+		They've ^wheeled him ^around and ^around ^the ^field, ^ {} ^ {} ^ {} \\
+		‘till they ^came ^unto ^a ^barn ^ {} ^ {} ^ {} \\
+		And ^there they ^made a \RemoveSpaces{^so ^lemn }\setleadsheets{print-chords=false}^ {}^ {}\setleadsheets{print-chords=true}
+		^oath, ^ {} ^ {} ^ {} \\
+		on ^poor John \RemoveSpaces{^Bar ^ley ^corn }.\setleadsheets{print-chords=false}^ {}^ {}^ {}\setleadsheets{print-chords=true}
+		^ {} ^ {} ^ {} \\
 		\\
-		The huntsman, he can't hunt the fox, \\
-		nor so loudly to blow his horn \\
-		And the tinker he can't mend kettle nor pots, \\
-		without a little Barleycorn \\
+		They've ^hired ^men ^with the ^crab-tree sticks, \\
+		to ^cut him ^skin from ^bone ^ {} ^ {} ^ {} \\
+		And the ^miller he has ^served him ^worse ^than ^that, ^ {} ^ {} ^ {} \\
+		for he's ^ground him ^between ^two ^stones. ^ {} ^ {} ^ {} \\
+	\end{verse}
+	\begin{chorus*}
+		\writechord{D} \writechord{C} \writechord{G} \writechord{Am} \writechord{A5} \writechord{Am} \writechord{A5} \times 4
+	\end{chorus*}
+	\begin{verse}
+		And ^little Sir ^John and the ^nut ^brown ^bowl, ^ {} ^ {} ^ {} \\
+		and he's ^brandy ^in ^the ^glass ^ {} ^ {} ^ {} \\
+		And ^little Sir ^John and the ^nut ^brown ^bowl, ^ {} ^ {} ^ {} \\
+		proved the ^strongest ^man ^at ^last. ^ {} ^ {} ^ {} \\
+		\\
+		The \RemoveSpaces{^hunts ^man }\setleadsheets{print-chords=false}^ {} ^ {}\setleadsheets{print-chords=true}
+		, ^he can't ^hunt the fox, \\
+		nor so ^loudly to ^blow his ^horn ^ {} ^ {} ^ {} \\
+		And the ^tinker he ^can't mend ^kettle ^nor ^pots, ^ {} ^ {} ^ {} \\
+		with ^out a little \RemoveSpaces{^Bar ^ley \setleadsheets{remember-chords=false}^{A}corn } \\
 	\end{verse}
 \end{song}
 
