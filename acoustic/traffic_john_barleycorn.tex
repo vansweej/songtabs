@@ -1,70 +1,7 @@
 \documentclass{article}
 \usepackage{leadsheets}
 \usepackage{array}
-
-\definesongtitletemplate{tabular}{
-    \ifsongmeasuring
-        {\section*}
-        {\section*}%
-        {\songproperty{title}}
-    \begingroup\footnotesize
-    \begin{tabular}{
-        @{}
-        >{\raggedright\arraybackslash}p{.5\linewidth}
-        @{}
-        >{\raggedleft\arraybackslash}p{.5\linewidth}
-        @{}
-    }
-    \ifsongproperty{interpret}
-        {\GetTranslation{leadsheets/interpret}}
-{}%
-\ifsongproperty{composer}
-{%
-&
-\GetTranslation{leadsheets/composer}: %
-\printsongpropertylist{composer}{ \& }{, }{ \& }
-\ifsongproperty{lyrics}
-{
-\\ &
-\GetTranslation{leadsheets/lyrics}: %
-\printsongpropertylist{lyrics}{ \& }{, }{ \& }
-}
-{}%
-}
-{}%
-\ifsongproperty{interpret}{\\}{\ifsongproperty{composer}{\\}{}}%
-\ifsongproperty{band}
-{& Band: \songproperty{band} \\}
-{}%
-\ifsongproperty{genre}
-{& Genre: \songproperty{genre} \\}
-{}%
-\ifsongproperty{tempo}
-{& Tempo: \songproperty{tempo} \\}
-{}%
-\ifsongproperty{capo}
-{& Capo: \songproperty{capo} \\}
-{}%
-\ifsongproperty{key}
-{%
-& \setchords{
-major = -\GetTranslation{leadsheets/major} ,
-minor = -\GetTranslation{leadsheets/minor}
-}%
-\GetTranslation{leadsheets/key}: %
-\expandcode{\writechord{\songproperty{key}}} \\%
-}
-{}%
-\end{tabular}
-\par\endgroup
-}
-
-\def\RemoveSpaces#1{%
-  \begingroup
-  \spaceskip1sp
-  \xspaceskip1sp
-  #1%
-  \endgroup}
+\include{preamble}
 
 \setleadsheets{title-template=tabular, align-chords=l, verses-format = \ttfamily, empty-chord-dim=0em}
 
